@@ -1,13 +1,11 @@
-# Updated CORS config for Vercel frontend
-
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
-# Allow your Vercel frontend
+# Allow your deployed Vercel frontend
 origins = [
-    "https://deepsite-v2-frontend.vercel.app",  # frontend URL
+    "https://deepsite-v2-frontend.vercel.app",
 ]
 
 app.add_middleware(
