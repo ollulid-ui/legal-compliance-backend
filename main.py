@@ -9,11 +9,11 @@ app = FastAPI(title="Legal Compliance MVP")
 # --- CORS setup ---
 app.add_middleware(
     CORSMiddleware,
-    # Change this to your real Deepsite frontend domain
     allow_origins=[
-        "https://your-deepsite-subdomain.deepsite.io",
-        "http://localhost:5173",   # dev
-        "http://localhost:8000"    # dev
+        "https://deepsite-v2-frontend.vercel.app",  # ✅ your live Vercel frontend
+        "http://localhost:5173",   # optional dev
+        "http://localhost:3000",   # optional dev server
+        "http://localhost:8000"    # optional local backend testing
     ],
     allow_credentials=True,
     allow_methods=["*"],
@@ -46,5 +46,8 @@ async def analyze_file(file: UploadFile = File(...)):
             {"issue": "No data retention policy", "severity": "Medium"}
         ]
     }
+
+    return {"analysis": result}
+
 
     return {"analysis": result}
