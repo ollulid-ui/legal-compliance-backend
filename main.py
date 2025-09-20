@@ -1,3 +1,5 @@
+# Updated CORS config for Vercel frontend
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
